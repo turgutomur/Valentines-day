@@ -175,7 +175,8 @@
             flex: 1;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
+            padding-top: 85px;
             animation: fadeInRight 1.2s ease-out 0.5s both;
         }
 
@@ -196,7 +197,7 @@
         .tree-container {
             position: relative;
             width: 350px;
-            height: 520px; /* Yüksekliği artırıldı */
+            height: 420px; /* Yüksekliği artırıldı */
         }
 
         
@@ -604,12 +605,12 @@
            ============================================ */
         @media (max-width: 768px) {
             .container {
-                padding: 40px 25px;
+                padding: 20px 15px;
             }
 
             .romantic-section {
                 flex-direction: column;
-                gap: 40px;
+                gap: 10px;
                 min-height: auto;
             }
 
@@ -623,8 +624,24 @@
             }
 
             .tree-container {
+                width: 320px;
+                height: 350px;
+            }
+
+            .heart-crown {
+                bottom: 120px;
                 width: 280px;
-                height: 360px;
+                height: 280px;
+            }
+
+            .tree-trunk {
+                height: 150px;
+            }
+
+            .branch-left,
+            .branch-right {
+                bottom: 120px;
+                height: 70px;
             }
 
             .poem-text {
@@ -636,6 +653,7 @@
                 padding: 20px;
             }
         }
+        
     </style>
 </head>
 <body>
