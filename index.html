@@ -48,11 +48,79 @@
             color: var(--crimson);
         }
 
+        /* ============================================
+           THREE COLUMN LAYOUT
+           ============================================ */
+        .page-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .side-photo {
+            flex: 0 0 220px;
+            position: sticky;
+            top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .side-photo img {
+            width: 100%;
+            max-width: 220px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 
+                0 15px 40px rgba(139, 10, 26, 0.15),
+                0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 4px solid rgba(255, 255, 255, 0.9);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .side-photo img:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 25px 50px rgba(139, 10, 26, 0.2),
+                0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .photo-label {
+            margin-top: 15px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--wine);
+            font-style: italic;
+            text-align: center;
+        }
+
+        .side-photo .heart-decoration {
+            font-size: 24px;
+            color: var(--heart-red);
+            margin-top: 10px;
+            animation: pulseHeart 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseHeart {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
+        .main-content {
+            flex: 1;
+            max-width: 800px;
+        }
+
         /* Main Container */
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 60px 40px;
+            padding: 20px 40px;
         }
 
         /* ============================================
@@ -65,7 +133,7 @@
             justify-content: space-between;
             gap: 40px;
             margin-bottom: 50px;
-            min-height: 500px;
+            min-height: 450px;
         }
 
         /* Left Side - Text Content */
@@ -118,8 +186,6 @@
         .poem-text .line:nth-child(2) { animation-delay: 0.5s; }
         .poem-text .line:nth-child(3) { animation-delay: 0.7s; }
         .poem-text .line:nth-child(4) { animation-delay: 0.9s; }
-        .poem-text .line:nth-child(5) { animation-delay: 1.1s; }
-        .poem-text .line:nth-child(6) { animation-delay: 1.3s; }
 
         @keyframes fadeInLine {
             from {
@@ -176,7 +242,7 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            padding-top: 85px;
+            padding-top: 20px;
             animation: fadeInRight 1.2s ease-out 0.5s both;
         }
 
@@ -197,15 +263,13 @@
         .tree-container {
             position: relative;
             width: 350px;
-            height: 420px; /* Yüksekliği artırıldı */
+            height: 400px;
         }
-
-        
 
         /* Heart Crown Container */
         .heart-crown {
             position: absolute;
-            bottom: 180px; /* Biraz daha aşağı, overlap için */
+            bottom: 160px;
             left: 50%;
             transform: translateX(-50%);
             width: 320px;
@@ -285,16 +349,13 @@
         }
 
         /* ============================================
-           CODE SECTION
+           MUSIC SECTION - Minimal
            ============================================ */
-        .code-section {
-            background: var(--code-bg);
-            border-radius: 12px;
-            padding: 0;
+        .music-section {
+            text-align: center;
+            padding: 40px 20px;
             margin-bottom: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            overflow: hidden;
-            animation: fadeInUp 1s ease-out 1.8s both;
+            animation: fadeInUp 1s ease-out 2s both;
         }
 
         @keyframes fadeInUp {
@@ -306,96 +367,6 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
-
-        /* Window Header */
-        .window-header {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .dot.red { background: #FF5F56; }
-        .dot.yellow { background: #FFBD2E; }
-        .dot.green { background: #27CA40; }
-
-        .file-name {
-            margin-left: 15px;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.8rem;
-            color: #6272A4;
-        }
-
-        /* Code Content */
-        .code-content {
-            padding: 25px 30px;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.9rem;
-            line-height: 1.9;
-        }
-
-        .code-line {
-            display: flex;
-            gap: 20px;
-            opacity: 0;
-            animation: typeIn 0.5s ease forwards;
-        }
-
-        .code-line:nth-child(1) { animation-delay: 2s; }
-        .code-line:nth-child(2) { animation-delay: 2.2s; }
-        .code-line:nth-child(3) { animation-delay: 2.4s; }
-        .code-line:nth-child(4) { animation-delay: 2.6s; }
-        .code-line:nth-child(5) { animation-delay: 2.8s; }
-        .code-line:nth-child(6) { animation-delay: 3s; }
-        .code-line:nth-child(7) { animation-delay: 3.2s; }
-        .code-line:nth-child(8) { animation-delay: 3.4s; }
-        .code-line:nth-child(9) { animation-delay: 3.6s; }
-        .code-line:nth-child(10) { animation-delay: 3.8s; }
-
-        @keyframes typeIn {
-            from {
-                opacity: 0;
-                transform: translateX(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .line-number {
-            color: #6272A4;
-            min-width: 20px;
-            text-align: right;
-            user-select: none;
-        }
-
-        .code-text { flex: 1; }
-
-        .keyword { color: var(--code-pink); }
-        .class-name { color: var(--code-purple); }
-        .property { color: var(--code-green); }
-        .string { color: var(--code-yellow); }
-        .number { color: var(--code-orange); }
-        .comment { color: #6272A4; font-style: italic; }
-        .bracket { color: #F8F8F2; }
-
-        /* ============================================
-           MUSIC SECTION - Minimal
-           ============================================ */
-        .music-section {
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 40px;
-            animation: fadeInUp 1s ease-out 2s both;
         }
 
         .music-title {
@@ -436,71 +407,6 @@
         }
 
         audio { display: none; }
-
-        /* ============================================
-           DEV NOTES SECTION
-           ============================================ */
-        .dev-notes {
-            background: var(--code-bg);
-            border-radius: 12px;
-            padding: 35px;
-            margin-bottom: 40px;
-            animation: fadeInUp 1s ease-out 2.2s both;
-        }
-
-        .dev-notes h3 {
-            font-family: 'Fira Code', monospace;
-            font-size: 1.1rem;
-            color: var(--code-green);
-            margin-bottom: 25px;
-        }
-
-        .dev-notes h3::before {
-            content: '// ';
-            color: var(--code-purple);
-        }
-
-        .dev-note-item {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 8px;
-            padding: 18px;
-            margin-bottom: 12px;
-            border-left: 3px solid var(--code-pink);
-            transition: all 0.3s ease;
-        }
-
-        .dev-note-item:hover {
-            background: rgba(255, 255, 255, 0.06);
-            transform: translateX(5px);
-        }
-
-        .dev-note-item:last-child { margin-bottom: 0; }
-
-        .dev-note-title {
-            font-family: 'Fira Code', monospace;
-            font-size: 0.9rem;
-            color: var(--code-yellow);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .dev-note-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.95rem;
-            color: #B8B5C4;
-            line-height: 1.6;
-        }
-
-        .dev-note-text code {
-            font-family: 'Fira Code', monospace;
-            background: rgba(255, 121, 198, 0.15);
-            color: var(--code-pink);
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 0.85rem;
-        }
 
         /* ============================================
            FOOTER
@@ -603,6 +509,36 @@
         /* ============================================
            RESPONSIVE
            ============================================ */
+        @media (max-width: 1200px) {
+            .page-wrapper {
+                gap: 25px;
+                padding: 30px 15px;
+            }
+            
+            .side-photo {
+                flex: 0 0 180px;
+            }
+            
+            .side-photo img {
+                max-width: 180px;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .page-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .side-photo {
+                display: none;
+            }
+            
+            .main-content {
+                max-width: 100%;
+            }
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 20px 15px;
@@ -634,96 +570,115 @@
                 height: 280px;
             }
 
-            .tree-trunk {
-                height: 150px;
-            }
-
-            .branch-left,
-            .branch-right {
-                bottom: 120px;
-                height: 70px;
-            }
-
             .poem-text {
                 font-size: 1.2rem;
             }
-
-            .code-content {
-                font-size: 0.8rem;
-                padding: 20px;
-            }
         }
-        
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- ============================================
-             ROMANTIC SECTION (Text + Tree)
-             ============================================ -->
-        <section class="romantic-section">
-            <!-- Left: Poetic Text -->
-            <div class="text-content">
-                <h1 class="main-title">Biricik Sevgilim İrem'e</h1>
-                
-                <div class="poem-text">
-                    <span class="line">"When you realize you want to spend the rest of your life with somebody,</span>
-                    <span class="line">you want the rest of your life to start as soon as possible. "</span>
-                    <span class="line">Seni <span class="highlight">çok seviyorum</span>.</span>
-                    <span class="line">&nbsp;</span>
-                </div>
+    <!-- ============================================
+         THREE COLUMN LAYOUT WRAPPER
+         ============================================ -->
+    <div class="page-wrapper">
+        
+        <!-- Left Photo - Ömür -->
+        <div class="side-photo left">
+            <img src="erkek.png" alt="Ömür">
+            <span class="photo-label">Ömür</span>
+            <span class="heart-decoration">♥</span>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="container">
+                <!-- ============================================
+                     ROMANTIC SECTION (Text + Tree)
+                     ============================================ -->
+                <section class="romantic-section">
+                    <!-- Left: Poetic Text -->
+                    <div class="text-content">
+                        <h1 class="main-title">Biricik Sevgilim İrem'e</h1>
 
-                <div class="timer-text">
-                    <span class="timer-label">Aşkımız başlayalı...</span>
-                    <span class="timer-value">
-                        <span id="days">0</span> gün 
-                        <span id="hours">0</span> saat 
-                        <span id="minutes">0</span> dakika 
-                        <span id="seconds">0</span> saniye
-                    </span>
-                </div>
-            </div>
+                        <div class="poem-text">
+                            <span class="line">"When you realize you want to spend the rest of your life with somebody,</span>
+                            <span class="line">you want the rest of your life to start as soon as possible."</span>
+                            <span class="line">Seni <span class="highlight">çok seviyorum</span>.</span>
+                            <span class="line">&nbsp;</span>
+                        </div>
 
-            <!-- Right: Heart Tree -->
-            <div class="tree-content">
-                <div class="tree-container" id="treeContainer">
-                    <div class="heart-crown" id="heartCrown"></div>
-                    <div class="branch branch-left"></div>
-                    <div class="branch branch-right"></div>
-                    <div class="tree-trunk">
-                        <span class="tree-trunk-knot"></span>
+                        <div class="timer-text">
+                            <span class="timer-label">Aşkımız başlayalı...</span>
+                            <span class="timer-value">
+                                <span id="days">0</span> gün
+                                <span id="hours">0</span> saat
+                                <span id="minutes">0</span> dakika
+                                <span id="seconds">0</span> saniye
+                            </span>
+                        </div>
                     </div>
-                </div>
+
+                    <!-- Right: Heart Tree -->
+                    <div class="tree-content">
+                        <div class="tree-container" id="treeContainer">
+                            <div class="heart-crown" id="heartCrown"></div>
+                            <div class="branch branch-left"></div>
+                            <div class="branch branch-right"></div>
+                            <div class="tree-trunk">
+                                <span class="tree-trunk-knot"></span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ============================================
+                     MUSIC SECTION
+                     ============================================ -->
+                <section class="music-section">
+                    <h3 class="music-title">♫ Bizim Şarkımız ♫</h3>
+                    <button class="play-btn" id="playBtn" onclick="toggleMusic()">
+                        <span id="playIcon">▶</span>
+                        <span id="playText">Şarkıyı Çal</span>
+                    </button>
+                    <p class="song-info">Ellerinin İzi - Selin Çıngır</p>
+                    <audio id="bgMusic" loop>
+                        <source src="ellerininizi.mp3" type="audio/mpeg">
+                    </audio>
+                </section>
+
+                <!-- ============================================
+                     FOOTER
+                     ============================================ -->
+                <footer class="footer">
+                    <p>Seni çok seviyorum <span class="heart-icon">♥</span></p>
+                    <p class="signature">- Sonsuza kadar seninle, Ömür</p>
+                </footer>
             </div>
-        </section>
-
-
-        <!-- ============================================
-             MUSIC SECTION
-             ============================================ -->
-        <section class="music-section">
-            <h3 class="music-title">♫ Bizim Şarkımız ♫</h3>
-            <button class="play-btn" id="playBtn" onclick="toggleMusic()">
-                <span id="playIcon">▶</span>
-                <span id="playText">Şarkıyı Çal</span>
-            </button>
-            <p class="song-info">Ellerinin İzi - Selin Çıngır</p>
-            <audio id="bgMusic" loop>
-                <source src="ellerininizi.mp3" type="audio/mpeg">
-            </audio>
-        </section>
-
-
-        <!-- ============================================
-             FOOTER
-             ============================================ -->
-        <footer class="footer">
-            <p>Seni çok seviyorum <span class="heart-icon">♥</span></p>
-            <p class="signature">- Sonsuza kadar seninle, Ömür</p>
-        </footer>
+        </div>
+        
+        <!-- Right Photo - İrem -->
+        <div class="side-photo right">
+            <img src="kiz.png" alt="İrem">
+            <span class="photo-label">İrem</span>
+            <span class="heart-decoration">♥</span>
+        </div>
+        
     </div>
 
-
+    <!-- Easter Egg Modal -->
+    <div class="easter-egg" id="easterEgg">
+        <div class="easter-egg-content">
+            <h2>🎉 Gizli Mesaj! 🎉</h2>
+            <p>
+                İrem, bu gizli mesajı buldun!<br>
+                Tıpkı benim seni bulduğum gibi...<br><br>
+                Sen hayatımın en güzel sürprizi,<br>
+                en değerli hazinesisin.<br><br>
+                Seninle her gün yeni bir macera! 💕
+            </p>
+            <button class="close-easter" onclick="closeEasterEgg()">Kapat</button>
+        </div>
+    </div>
 
     <script>
         // ============================================
@@ -754,94 +709,60 @@
         // ============================================
         function createHeartTree() {
             const crown = document.getElementById('heartCrown');
-            
+
             // Vibrant red color palette - NO pastels
             const colors = [
-                '#DC143C', // Crimson
-                '#B22234', // Dark Red  
-                '#8B0000', // DarkRed
-                '#FF0000', // Pure Red
-                '#C41E3A', // Cardinal
-                '#A91B2E', // Wine Red
-                '#CC0000', // Boston Red
-                '#990000', // Dark Crimson
-                '#FF2D2D', // Bright Red
-                '#E31C23', // Fire Red
-                '#B31B1B', // Cornell Red
-                '#7B0000', // Maroon
-                '#FF1744', // Vibrant Red
-                '#D50000', // Accent Red
-                '#C62828', // Deep Red
+                '#DC143C', '#B22234', '#8B0000', '#FF0000', '#C41E3A',
+                '#A91B2E', '#CC0000', '#990000', '#FF2D2D', '#E31C23',
+                '#B31B1B', '#7B0000', '#FF1744', '#D50000', '#C62828'
             ];
-            
+
             const heartPositions = [];
-            const totalHearts = 750; // Dense cluster
-            
-            // Center point for the heart crown - aligned with trunk top
+            const totalHearts = 750;
             const centerX = 160;
-            const centerY = 155; // Lowered to overlap with trunk
-            
-            // ============================================
-            // DENSE PARTICLE CLUSTER - Heart Shape Fill
-            // ============================================
-            
-            // Function to check if point is inside heart shape
+            const centerY = 155;
+
             function isInsideHeart(x, y, scale) {
-                // Normalize coordinates
                 const nx = (x - centerX) / scale;
-                const ny = (centerY - y) / scale; // Flip Y
-                
-                // Heart equation: (x² + y² - 1)³ - x²y³ < 0
+                const ny = (centerY - y) / scale;
                 const term = Math.pow(nx * nx + ny * ny - 1, 3) - nx * nx * Math.pow(ny, 3);
                 return term < 0;
             }
-            
-            // Generate dense cluster using rejection sampling
+
             const maxRadius = 130;
             const heartScale = 100;
             let attempts = 0;
             const maxAttempts = totalHearts * 10;
-            
+
             while (heartPositions.length < totalHearts && attempts < maxAttempts) {
                 attempts++;
-                
-                // Random point in bounding box
                 const randomX = centerX + (Math.random() - 0.5) * maxRadius * 2.2;
-                const randomY = centerY + (Math.random() - 0.6) * maxRadius * 2.5; // Bias upward
-                
-                // Check if inside heart shape
+                const randomY = centerY + (Math.random() - 0.6) * maxRadius * 2.5;
+
                 if (isInsideHeart(randomX, randomY, heartScale)) {
-                    // Calculate distance from center for size variation
                     const distFromCenter = Math.sqrt(
-                        Math.pow(randomX - centerX, 2) + 
-                        Math.pow(randomY - centerY, 2)
+                        Math.pow(randomX - centerX, 2) + Math.pow(randomY - centerY, 2)
                     );
-                    
-                    // Larger hearts at edges, smaller inside for depth
                     const normalizedDist = distFromCenter / maxRadius;
                     const baseSize = 10 + Math.random() * 12;
                     const size = baseSize + normalizedDist * 6;
-                    
+
                     heartPositions.push({
-                        x: randomX + (Math.random() - 0.5) * 8, // Extra scatter
+                        x: randomX + (Math.random() - 0.5) * 8,
                         y: randomY + (Math.random() - 0.5) * 8,
                         size: size,
-                        depth: Math.random() // For z-index layering
+                        depth: Math.random()
                     });
                 }
             }
-            
-            // Add extra hearts around edges for fullness
+
             for (let i = 0; i < 150; i++) {
                 const angle = Math.random() * Math.PI * 2;
                 const radius = 80 + Math.random() * 50;
-                
-                // Heart-shaped boundary
                 const heartRadius = radius * (1 + 0.3 * Math.sin(angle) * Math.sqrt(Math.abs(Math.cos(angle))));
-                
                 const x = centerX + Math.cos(angle) * heartRadius * 0.8;
                 const y = centerY - Math.sin(angle) * heartRadius * 0.7 - 20;
-                
+
                 heartPositions.push({
                     x: x + (Math.random() - 0.5) * 15,
                     y: y + (Math.random() - 0.5) * 15,
@@ -849,11 +770,9 @@
                     depth: 0.5 + Math.random() * 0.5
                 });
             }
-            
-            // Sort by Y position for growth effect (bottom to top)
+
             heartPositions.sort((a, b) => b.y - a.y);
-            
-            // Create DOM elements
+
             heartPositions.forEach((pos, index) => {
                 const heart = document.createElement('div');
                 heart.className = 'tree-heart';
@@ -862,59 +781,49 @@
                 heart.style.top = pos.y + 'px';
                 heart.style.fontSize = pos.size + 'px';
                 heart.style.color = colors[Math.floor(Math.random() * colors.length)];
-                
-                // Staggered growth animation (faster for more hearts)
-                const growDelay = index * 0.008; // Faster animation
+
+                const growDelay = index * 0.008;
                 heart.style.animationDelay = `${growDelay}s, ${growDelay + 0.5}s`;
-                
-                // Z-index: some hearts in front of branches (z:9), bazıları dalların arkasında (z:5), bazıları tam dalların üstünde (z:8)
+
                 const zLayer = Math.random();
                 if (zLayer < 0.25) {
-                    heart.style.zIndex = 5; // Dalların arkasında
+                    heart.style.zIndex = 5;
                 } else if (zLayer < 0.55) {
-                    heart.style.zIndex = 8; // Dalların tam üstünde
+                    heart.style.zIndex = 8;
                 } else if (zLayer < 0.85) {
-                    heart.style.zIndex = 9; // Dalların önünde
+                    heart.style.zIndex = 9;
                 } else {
-                    heart.style.zIndex = 15; // En önde, foreground
+                    heart.style.zIndex = 15;
                 }
-                
-                // Slight opacity variation for depth
+
                 heart.style.opacity = 0.85 + pos.depth * 0.15;
-                
-                // Click to release flying hearts
                 heart.addEventListener('click', () => createFlyingHeart(heart));
-                
                 crown.appendChild(heart);
             });
-            
-            console.log(`Created ${heartPositions.length} hearts`);
         }
 
-        // Flying hearts when clicked
         function createFlyingHeart(sourceHeart) {
             const container = document.getElementById('treeContainer');
             const rect = sourceHeart.getBoundingClientRect();
             const containerRect = container.getBoundingClientRect();
-            
+
             for (let i = 0; i < 4; i++) {
                 const flyingHeart = document.createElement('div');
                 flyingHeart.className = 'flying-heart';
                 flyingHeart.innerHTML = '❤';
-                flyingHeart.style.left = (rect.left - containerRect.left + rect.width/2) + 'px';
+                flyingHeart.style.left = (rect.left - containerRect.left + rect.width / 2) + 'px';
                 flyingHeart.style.top = (rect.top - containerRect.top) + 'px';
                 flyingHeart.style.fontSize = '18px';
                 flyingHeart.style.color = sourceHeart.style.color;
                 flyingHeart.style.setProperty('--fly-x', (Math.random() - 0.5) * 180 + 'px');
                 flyingHeart.style.setProperty('--fly-y', -120 - Math.random() * 80 + 'px');
                 flyingHeart.style.animationDelay = (i * 0.08) + 's';
-                
+
                 container.appendChild(flyingHeart);
                 setTimeout(() => flyingHeart.remove(), 3500);
             }
         }
 
-        // Auto-release hearts periodically
         function autoReleaseHearts() {
             const hearts = document.querySelectorAll('.tree-heart');
             if (hearts.length > 0) {
@@ -923,7 +832,6 @@
             }
         }
 
-        // Initialize
         createHeartTree();
         setInterval(autoReleaseHearts, 4000);
 
@@ -973,7 +881,6 @@
         // Console Easter Egg
         console.log('%c💕 İrem için özel mesaj 💕', 'font-size: 20px; color: #DC143C;');
         console.log('%cSeni seven birisi bu siteyi büyük bir sevgiyle hazırladı!', 'font-size: 14px; color: #8B0A1A;');
-        console.log('%c// TODO: Seni sonsuza kadar sevmek ✓', 'font-size: 12px; color: #50FA7B; font-family: monospace;');
     </script>
 </body>
 </html>
